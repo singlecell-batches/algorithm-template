@@ -1,7 +1,7 @@
-{{cookiecutter.project_slug}}
+{{cookiecutter.algorithm_slug}}
 ==============================
 
-{{cookiecutter.project_short_description}}
+{{cookiecutter.algorithm_short_description}}
 
 Project Organization
 --------------------
