@@ -70,10 +70,43 @@ cookiecutter-1 100% |###########################################################
 
 Usage
 -----
-To start a new science algorithm:
+To start a new science algorithm, first change to your `singlecell-batches`
+directory, which should be in `~/code`:
 
 ```
-cookiecutter gh:mkrapp/cookiecutter-reproducible-science
+cd ~/code/singlecell-batches
+```
+
+From here, run the `cookiecutter` command using this template:
+
+```
+$ cookiecutter https://github.com/singlecell-batches/cookiecutter-reproducible-science
+```
+
+This proceeds to ask you some questions, for which you type in the answers and
+press ENTER to get the next one. The text in brackets indicates the default
+values, and the text after the colon indicates my answers, which are not default.
+
+```
+full_name [Brian Singlecell]: Olga Botvinnik
+email [brian.singlecell@gmail.com]: olga.botvinnik@czbiohub.org
+github_username [b-singlecell]: olgabot
+algorithm_name [Name of your batch effect correction algorithm]: I got 99 batches
+algorithm_slug [i-got-99-batches]: 
+algorithm_short_description [A short description of your algorithm]: Finds up to 99 batches in your single-cell RNA-seq data
+release_date [2017-08-09]: 
+version [0.1.0]: 
+```
+
+```
+```
+
+
+If you've run this before, you may get the following question, which it is
+totally okay to say "yes" to:
+
+```
+You've cloned /Users/olgabot/.cookiecutters/cookiecutter-reproducible-science before. Is it okay to delete and re-clone it? [yes]: yes
 ```
 
 Project Structure
