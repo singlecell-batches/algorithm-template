@@ -68,6 +68,12 @@ cookiecutter-1 100% |###########################################################
 #
 ```
 
+If you used this route, you'll need to activate the environment:
+
+```
+source activate cookiecutter
+```
+
 Usage
 -----
 To start a new science algorithm, first change to your `singlecell-batches`
