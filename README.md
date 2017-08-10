@@ -112,31 +112,68 @@ You've cloned /Users/olgabot/.cookiecutters/cookiecutter-reproducible-science be
 Project Structure
 -----------------
 
+The directories for each algorithm comparison are
+
 ```
 .
+├── 00_data
+├── 01_notebooks
+├── 02_scripts
+├── 03_workflows
+├── 04_figures
 ├── AUTHORS.md
 ├── LICENSE
 ├── README.md
-├── bin                <- Your compiled model code can be stored here (not tracked by git)
-├── config             <- Configuration files, e.g., for doxygen or for your model if needed
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-├── docs               <- Documentation, e.g., doxygen or scientific papers (not tracked by git)
-├── notebooks          <- Ipython or R notebooks
-├── reports            <- For a manuscript source, e.g., LaTeX, Markdown, etc., or any algorithm reports
-│   └── figures        <- Figures for the manuscript or reports
-└── src                <- Source code for this algorithm
-    ├── data           <- scripts and programs to process data
-    ├── external       <- Any external source code, e.g., pull other git algorithms, or external libraries
-    ├── models         <- Source code for your own model
-    ├── tools          <- Any helper scripts go here
-    └── visualization  <- Scripts for visualisation of your results, e.g., matplotlib, ggplot2 related.
+└── environment.yml
 ```
+Here is a graphical overview of how the data flows between the folders.
 
-Check out my latest research algorithm, which successfully applied the `cookiecutter` philosophy: [SEMIC: an efficient surface energy and mass balance model applied to the Greenland ice sheet](https://gitlab.pik-potsdam.de/krapp/semic-algorithm).
+![Data flow](/data_flow.png)
+
+Below is a more detailed description of each file/folder
+
+- `00_data` - Input and output data for the project. By default, all files and
+  folders here will be ignored by Git because they will tend to be big. If you
+  **really** want to include something and its less than 100MB, you can use
+  `git add -f data/000_notebookname/filename.csv` to add.
+- `01_noteboboks` - All exploratory analyses in the form of Jupyter notebooks.
+  Should be named in the order that you did them, e.g.
+
+    ```
+    000_combine_data.ipynb
+    001_histograms_of_counts.ipynb
+    002_combat_test_parameters.ipynb
+    ```
+- `02_scripts` - Once you've figured out what code you want to write for your
+  data, you'll probably have a few standalone R/Python files that you'll want
+  to run on your own. e.g.
+    ```
+    run_combat.py
+    measure_before_after_distances.py
+    ```
+- `03_workflows` - As you figure what you want to compare, you'll probably have
+  a common set of scripts from `02_scripts` that you want to run. These
+  workflows can reference those scripts and produce outputs into `04_figures`
+
+    ```
+    combat_workflow.cwl
+    ```
+- `04_figures` - PNG or PDF images with graphs produced by either
+  `01_notebooks`, `02_scripts` or `03_workflows`, named by the thing that
+  produced them, e.g.
+
+    ```
+    001_histograms_of_counts/counts.pdf
+    001_histograms_of_counts/counts_logged.pdf
+    combat_workflow/initial_data/counts.pdf
+    combat_workflow/corrected_data/counts.pdf
+    run_combat/pca_before.pdf
+    run_combat/pca_after.pdf
+    ```
+- `environment.yml` - Initially empty, but eventually should soon contain the
+  installation dependencies for your algorithm. Can be created using `conda env
+  export > environment.yml`. The idea is that anyone should be able to
+  reproduce your analyses, using your exact packages.
 
 License
 -------
