@@ -1,6 +1,17 @@
 Reproducible Science
 ====================
 
+[TOC]: # "Table of Contents"
+
+# Table of Contents
+- [Requirements](#requirements)
+    - [Advanced installation](#advanced-installation)
+- [Usage - Adding a batch effect correction algorithm](#usage---adding-a-batch-effect-correction-algorithm)
+    - [Folder Structure](#folder-structure)
+- [Adding the folder to GitHub](#adding-the-folder-to-github)
+- [License](#license)
+
+
 A boilerplate for reproducible and transparent science with close resemblances to the philosophy of [Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science): *A logical, reasonably standardized, but flexible algorithm structure for doing and sharing data science work.*
 
 For reference,
@@ -79,10 +90,10 @@ If you used this route, you'll need to activate the environment:
 source activate cookiecutter
 ```
 
-Usage
------
-To start a new science algorithm, first change to your `singlecell-batches`
-directory, which should be in `~/code`:
+## Usage - Adding a batch effect correction algorithm
+
+ To start a new science algorithm, first change to your
+`singlecell-batches` directory, which should be in `~/code`:
 
 ```
 cd ~/code/singlecell-batches
@@ -120,8 +131,7 @@ totally okay to say "yes" to:
 You've cloned /Users/olgabot/.cookiecutters/cookiecutter-reproducible-science before. Is it okay to delete and re-clone it? [yes]: yes
 ```
 
-Project Structure
------------------
+### Folder Structure
 
 The directories for each algorithm comparison are
 
